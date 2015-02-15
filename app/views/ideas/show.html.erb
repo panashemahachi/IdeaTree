@@ -33,6 +33,13 @@
 	<%= @idea.get_upvotes.size %> Likes
 
 	<% end %>
-
+<%= link_to "Follow", follow_idea_path(@idea) %>
+<%= link_to "Unfollow", unfollow_idea_path(@idea) %>
+Amount of Followers: <%= @idea.followers.count %>
+Followers:
+<% @idea.followers.each do |follower| %>
+<%= follower.first_name %>
+<%= follower.last_name %>
+<% end %>
 <%= link_to 'Edit', edit_idea_path(@idea) %> |
 <%= link_to 'Back', ideas_path %>

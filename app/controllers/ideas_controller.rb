@@ -50,6 +50,17 @@ class IdeasController < ApplicationController
     redirect_to :back
   end
 
+  def follow
+    @idea = Idea.find(params[:id])
+    current_user.follow(@idea)
+    flash[:notice] = "You are now following #{@idea.title}."
+    redirect_to :back
+  end
+
+  def unfollow
+    current_user.stop_following(@idea)
+    redirect_to :back
+  end
   private
     def set_idea
       @idea = Idea.find(params[:id])

@@ -38,3 +38,5 @@ gem 'acts_as_votable'
 gem 'acts-as-taggable-on'
 
 gem 'simple_form'
+
+gem "acts_as_follower"

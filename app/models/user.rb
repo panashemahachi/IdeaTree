@@ -6,7 +6,8 @@ class User < ActiveRecord::Base
 
   has_many :ideas
   has_many :comments
-  
+  acts_as_follower
+
 	def self.from_omniauth(auth)
   where(provider: auth.provider, uid: auth.uid).first_or_create do |user|
     user.email = auth.info.email

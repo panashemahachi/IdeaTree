@@ -3,6 +3,8 @@ Rails.application.routes.draw do
     resources :comments
       member do
         put "like", to: "ideas#upvote"
+        get :follow
+        get :unfollow
       end
     end
 
