@@ -4,12 +4,18 @@ class User < ActiveRecord::Base
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable, :omniauthable, :omniauth_providers => [:linkedin]
 
+  has_many :ideas
+
 	def self.from_omniauth(auth)
 	  where(provider: auth.provider, uid: auth.uid).first_or_create do |user|
-	    user.email = auth.info.email
+	    user.email = auth.info.email-address
 	    user.password = Devise.friendly_token[0,20]
-	    user.name = auth.info.name   # assuming the user model has a name
-	    user.image = auth.info.image # assuming the user model has an image
+	    user.first_name = auth.info.first-name   # assuming the user model has a name
+	    user.last_name = auth.info.last-name # assuming the user model has an image
+	    user.headline = auth.info.headline
+	    user.location = auth.info.location
+	    user.profile_pic = auth.info.public-profile-url
+	    user.save!
 	  end
 	end
 
