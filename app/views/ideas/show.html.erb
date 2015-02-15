@@ -41,5 +41,11 @@ Followers:
 <%= follower.first_name %>
 <%= follower.last_name %>
 <% end %>
+
+Branches: (<%= @idea.branches.count %>)
+<% @idea.branches.each do |branch| %>
+<%= branch.branch_name %>
+<% end %>
+
 <%= link_to 'Edit', edit_idea_path(@idea) %> |
 <%= link_to 'Back', ideas_path %>

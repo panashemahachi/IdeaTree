@@ -1,0 +1,14 @@
+<%= simple_form_for(@branch) do |f| %>
+  <%= f.error_notification %>
+
+  <div class="form-inputs">
+    <%= f.input :branch_name %>
+    <%= f.input :branch_description %>
+    <%= f.association :idea %>
+    <%= f.association :user %>
+  </div>
+
+  <div class="form-actions">
+    <%= f.button :submit %>
+  </div>
+<% end %>

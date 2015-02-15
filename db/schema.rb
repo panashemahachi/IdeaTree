@@ -11,7 +11,19 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150215182143) do
+ActiveRecord::Schema.define(version: 20150215185540) do
+
+  create_table "branches", force: true do |t|
+    t.string   "branch_name"
+    t.text     "branch_description"
+    t.integer  "idea_id"
+    t.integer  "user_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "branches", ["idea_id"], name: "index_branches_on_idea_id"
+  add_index "branches", ["user_id"], name: "index_branches_on_user_id"
 
   create_table "comments", force: true do |t|
     t.text     "comment"

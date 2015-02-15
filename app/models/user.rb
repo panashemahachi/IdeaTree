@@ -6,6 +6,7 @@ class User < ActiveRecord::Base
 
   has_many :ideas
   has_many :comments
+  has_many :branches
   acts_as_follower
 
 	def self.from_omniauth(auth)

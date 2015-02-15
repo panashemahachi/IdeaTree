@@ -5,4 +5,5 @@ class Idea < ActiveRecord::Base
 	# Quora style community: no user 'owns' an idea
 	belongs_to :user
 	has_many :comments
+	has_many :branches
 end
