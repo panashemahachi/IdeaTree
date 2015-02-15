@@ -1,0 +1,7 @@
+<!-- Comment structure -->
+
+<%= comment.comment %>
+
+
+<%= link_to "Edit", edit_idea_comment_path(comment.idea, comment) %>
+<%= link_to "Delete Comment", [comment.idea, comment], method: :delete, data: {confirm: "Are you sure"} %>

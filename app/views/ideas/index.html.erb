@@ -6,19 +6,8 @@
   <% end %>
 </div>
 
-<table>
-  <thead>
-    <tr>
-      <th>Title</th>
-      <th>Short description</th>
-      <th>Description</th>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
-
-  <tbody>
     <% @ideas.each do |idea| %>
-      <tr>
+     <!-- <tr>
         <td><%= idea.title %></td>
         <td><%= idea.short_description %></td>
         <td><%= idea.description %></td>
@@ -26,12 +15,25 @@
         Tags: <%= raw idea.tag_list.map { |t| link_to t, tag_path(t) }.join(', ') %>
         <td><%= link_to 'Show', idea %></td>
         <td><%= link_to 'Edit', edit_idea_path(idea) %></td>
-        <td><%= link_to 'Destroy', idea, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%= link_to 'Destroy', idea, method: :delete, data: { confirm: 'Are you sure?' } %></td>-->
 
-      </tr>
+ <div class="row well">
+          <div class="col-md-12">
+            <div class="media">          
+              <div class="media-body">
+                <h3 class="media-heading"><%= link_to idea.title, idea_path(idea) %> <small><%= idea.short_description %></small></h3>
+                <p><%= idea.description %></p>
+                  <hr style="margin:8px auto">
+                  Tags:
+                  <span class="label label-default "><%= raw idea.tag_list.map { |t| link_to t, tag_path(t) }.join(' ') %></span>
+                </div>
+              </div>
+            </div>
+          </div>
+
     <% end %>
-  </tbody>
-</table>
+
+       
 
 
 <br>

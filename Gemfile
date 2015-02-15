@@ -36,3 +36,5 @@ gem 'omniauth-linkedin-oauth2'
 gem 'acts_as_votable'
 
 gem 'acts-as-taggable-on'
+
+gem 'simple_form'

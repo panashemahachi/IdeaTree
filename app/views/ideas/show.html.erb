@@ -19,9 +19,18 @@
   <strong>Tags:</strong>
   <%= @idea.tag_list %>
 </p>
+
+<p>
+	<%= @idea.comments.count %>
+	<%= render @idea.comments %>
+
+	Comment:
+	<%= render "comments/form" %>
+
+</p>
 <%= link_to like_idea_path(@idea), method: :put do %>
 
-	<%= @idea.get_upvotes_size %>
+	<%= @idea.get_upvotes.size %> Likes
 
 	<% end %>
 
