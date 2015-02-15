@@ -15,9 +15,9 @@ Rails.application.routes.draw do
   get 'tags/:tag', to: 'ideas#index', as: :tag
 
   #Don't go home all the time
-  authenticated :user do
-    root to: 'ideas#index', as: "authenticated_root"
-  end
+  #authenticated :user do
+   # root to: 'ideas#index', as: "authenticated_root"
+  #end
   root to: 'static#home'
 
 end

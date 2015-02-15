@@ -1,4 +1,94 @@
-<h1>Home</h1>
+<header>
+	<div class="container header">
+		<div class="intro-text">
+			<div class="intro-lead-in">ITree</div>
+			<div class="intro-heading">Lorem Ipsum Lorem Ipsum Lorem Ipsum </div>
 
-<%= link_to "Sign in with Facebook", user_omniauth_authorize_path(:facebook) %>
+			<div class="omb_login">
+				<div class="row omb_socialButtons">
+					<button class="btn btn-lg omb_btn-facebook">
+						<%= fa_icon "facebook", class: "fb-icon pull-left" %> <%= link_to "Sign in with Facebook", user_omniauth_authorize_path(:facebook)%>
+					</button>
 
+				</div>
+			</div>
+		</div>
+
+	</div>
+</div>
+</header>
+
+<div class="container">
+	<div class="row content">
+		<div class="col-md-8">
+			<h2>Lorem Ipsum Bro</h2>
+			<h6>Follow up text Follow up text Follow up text Follow up text Follow up text Follow up text</h6>
+		</div>
+
+		<div class="col-md-4">
+
+			<%= image_tag("http://placehold.it/400x300", :class => 'img-responsive')%>
+		</div>
+	</div>
+
+	<div class="row content">
+		<div class="col-md-4">
+
+			<%= image_tag("http://placehold.it/400x300", :class => 'img-responsive')%>
+		</div>
+
+		<div class="col-md-8">
+			<h2>Lorem Ipsum Bro</h2>
+			<h6>Follow up text Follow up text Follow up text Follow up text Follow up text Follow up text</h6>
+		</div>
+	</div>
+
+	<div class="row content">
+		<div class="col-md-8">
+			<h2>Lorem Ipsum Bro</h2>
+			<h6>Follow up text Follow up text Follow up text Follow up text Follow up text Follow up text</h6>
+		</div>
+
+		<div class="col-md-4">
+
+			<%= image_tag("http://placehold.it/400x300", :class => 'img-responsive')%>
+		</div>
+	</div>
+</div>
+<section id="action" class="content">
+	<div class="container">
+		<div class="row">
+			<div class="col-lg-12 text-center">
+
+				<div class="col-md-4">
+
+					<%= image_tag("http://placehold.it/400x300", :class => 'img-responsive')%>
+				</div>
+
+				<div class="col-md-8">
+					<h2>Lorem Ipsum Bro</h2>
+					<h6>Follow up text Follow up text Follow up text Follow up text Follow up text Follow up text</h6>
+					<center><div class="omb_login">
+				<div class="row omb_socialButtons">
+					<button class="btn btn-lg omb_btn-facebook">
+						<%= fa_icon "facebook", class: "fb-icon pull-left" %> <%= link_to "Sign in with Facebook", user_omniauth_authorize_path(:facebook)%>
+					</button>
+
+				</div>
+			</div></center>
+				</div>
+			</div>
+			
+		</div>
+	</div>
+
+</div>
+</section>
+
+<footer>
+	<div class="container">
+		<div class="row">
+			<p> ITree</p>
+		</div>
+	</div>
+</footer>

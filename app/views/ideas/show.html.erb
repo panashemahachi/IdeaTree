@@ -44,7 +44,8 @@ Followers:
 
 Branches: (<%= @idea.branches.count %>)
 <% @idea.branches.each do |branch| %>
-<%= branch.branch_name %>
+<!-- Add greater than sign after title to show subset -->
+<%= @idea.title %> > <%= branch.branch_name %>
 <% end %>
 
 <%= link_to 'Edit', edit_idea_path(@idea) %> |
