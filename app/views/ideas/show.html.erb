@@ -15,11 +15,15 @@
   <%= @idea.description %>
 </p>
 
+<p>
+  <strong>Tags:</strong>
+  <%= @idea.tag_list %>
+</p>
 <%= link_to like_idea_path(@idea), method: :put do %>
 
 	<%= @idea.get_upvotes_size %>
 
 	<% end %>
-	
+
 <%= link_to 'Edit', edit_idea_path(@idea) %> |
 <%= link_to 'Back', ideas_path %>

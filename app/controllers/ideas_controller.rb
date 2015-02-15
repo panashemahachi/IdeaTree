@@ -4,8 +4,14 @@ class IdeasController < ApplicationController
   respond_to :html
 
   def index
-    @ideas = Idea.all
-    respond_with(@ideas)
+
+    if params[:tag]
+      @ideas = Idea.tagged_with(params[:tag])
+
+    else
+      @ideas = Idea.all
+    end
+    
   end
 
   def show
@@ -50,6 +56,6 @@ class IdeasController < ApplicationController
     end
 
     def idea_params
-      params.require(:idea).permit(:title, :short_description, :description)
+      params.require(:idea).permit(:title, :short_description, :description, :tag_list)
     end
 end

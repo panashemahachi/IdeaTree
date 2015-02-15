@@ -1,5 +1,11 @@
 <h1>Listing ideas</h1>
 
+<div id="tag_cloud">
+<% tag_cloud Idea.tag_counts, %w{s m l} do |tag, css_class| %>
+  <%= link_to tag.name, tag_path(tag.name), class: css_class %>
+  <% end %>
+</div>
+
 <table>
   <thead>
     <tr>
@@ -16,13 +22,17 @@
         <td><%= idea.title %></td>
         <td><%= idea.short_description %></td>
         <td><%= idea.description %></td>
+        <td><%= idea.tag_list %></td>
+        Tags: <%= raw idea.tag_list.map { |t| link_to t, tag_path(t) }.join(', ') %>
         <td><%= link_to 'Show', idea %></td>
         <td><%= link_to 'Edit', edit_idea_path(idea) %></td>
         <td><%= link_to 'Destroy', idea, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+
       </tr>
     <% end %>
   </tbody>
 </table>
+
 
 <br>
 
