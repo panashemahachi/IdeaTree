@@ -50,6 +50,15 @@ class IdeasController < ApplicationController
     redirect_to :back
   end
 
+  def downvote
+    @idea.downvote_from current_user
+    redirect_to :back
+  end
+
+  def liked
+    #@ideas = @idea.liked_by current_user,  :vote => 'like'
+  end
+
   def follow
     @idea = Idea.find(params[:id])
     current_user.follow(@idea)
@@ -58,9 +67,11 @@ class IdeasController < ApplicationController
   end
 
   def unfollow
+    @idea = Idea.find(params[:id])
     current_user.stop_following(@idea)
     redirect_to :back
   end
+
   private
     def set_idea
       @idea = Idea.find(params[:id])

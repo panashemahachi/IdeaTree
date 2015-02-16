@@ -15,3 +15,32 @@
  *= require_tree .
  *= require_self
  */
+body {
+  padding-bottom: 20px;
+}
+
+.navbar {
+  margin-bottom: 20px;
+}
+
+.channel-header{
+	text-decoration: underline;
+}
+
+.btn-transparent{
+	background-color: rgba(0,0,0,0);
+	color: white;
+}
+
+.btn-transparent a{
+	color: white;
+}
+
+.btn-transparent-color, .btn-transparent-color a{
+	background-color: rgba(0,0,0,0);
+	color: black;
+}
+
+.feeds{
+	position: fixed;
+}

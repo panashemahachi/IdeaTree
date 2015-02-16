@@ -42,3 +42,4 @@ gem 'simple_form'
 gem "acts_as_follower"
 
 gem "font-awesome-rails"
+

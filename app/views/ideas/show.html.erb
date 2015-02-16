@@ -30,9 +30,9 @@
 </p>
 <%= link_to like_idea_path(@idea), method: :put do %>
 
-	<%= @idea.get_upvotes.size %> Likes
+<%= @idea.get_upvotes.size %> Likes
 
-	<% end %>
+<% end %>
 <%= link_to "Follow", follow_idea_path(@idea) %>
 <%= link_to "Unfollow", unfollow_idea_path(@idea) %>
 Amount of Followers: <%= @idea.followers.count %>

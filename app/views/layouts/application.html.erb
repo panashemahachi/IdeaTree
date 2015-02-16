@@ -1,24 +1,74 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>Ideatree</title>
-  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
-  <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
-  <%= csrf_meta_tags %>
+	<title>Ideatree</title>
+	<%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
+	<%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+	<%= csrf_meta_tags %>
 </head>
 <body>
+	<div class="container">
+		<!-- Static navbar -->
+		<nav class="navbar navbar-default">
+			<div class="container-fluid">
+				<div class="navbar-header">
+					<button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+						<span class="sr-only">Toggle navigation</span>
+						<span class="icon-bar"></span>
+						<span class="icon-bar"></span>
+						<span class="icon-bar"></span>
+					</button>
+					<a class="navbar-brand" href="#">ITree</a>
+				</div>
+				<div id="navbar" class="navbar-collapse collapse">
+					<form class="navbar-form navbar-left">
+						<input type="text" class="form-control" placeholder="Search">
+					</form>
+					<ul class="nav navbar-nav">
+						<li><button type="button" class="btn btn-transparent">
+							<%= fa_icon "home" ,class: "nav-icons pull-left" %><%= link_to 'Home', ideas_path %>
+						</button></li>
+						<li><button type="button" class="btn btn-transparent"><%= fa_icon "bolt",class: "nav-icons pull-left" %>Notifications</button></li>
+						<li><button type="button" class="btn btn-transparent"><%= fa_icon "user",class: "nav-icons pull-left" %><%= link_to current_user.first_name, edit_user_registration_path %></button></li>
+					</ul>
 
+					<button type="button" class="btn btn-success">
+						<%= fa_icon "lightbulb-o",class: "nav-icons pull-left" %><%= link_to 'New Idea', new_idea_path %>
+					</button>
+				</div>
+			</div>
+		</nav>
+	</div>
+<!--
 <%= @test = User.last %>
 
 <%= @test.email %>
 <%= @test.location %>
 First: <%= @test.first_name %>
----
 Last: <%= @test.last_name %>
-<%= @test.profile_pic %>
-
+<%= @test.profile_pic %>-->
 <div class="container">
-<%= yield %>
+	<div class="col-md-2">
+		<h4 class="channel-header">Main Channels</h4>
+		<h6>Example</h6>
+		<h6>Example</h6>
+		<h6>Example</h6>
+
+		<h4 class="channel-header">Categories</h4>
+		<h6>Example</h6>
+		<h6>Example</h6>
+		<h6>Example</h6>
+
+		<h4 class="channel-header">Your Channels</h4>
+		<h6>Example</h6>
+		<h6>Example</h6>
+		<h6>Example</h6>
+	</div>
+	<div class="col-md-8">
+		<%= yield %>
+	</div>
+	<div class="col-md-2">
+	</div>
 </div>
 </body>
 </html>
