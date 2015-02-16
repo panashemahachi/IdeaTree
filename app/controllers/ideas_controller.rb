@@ -12,7 +12,12 @@ if params[:search]
     elsif params[:tag]
       @ideas = Idea.tagged_with(params[:tag])
 
-    
+    elsif params[:hot]
+      @ideas = Idea.order(:cached_votes_up => :desc)
+
+    elsif params[:most_liked]
+      @ideas = Idea.order(:cached_votes_up => :desc)
+
     else
       @ideas = Idea.order("created_at DESC")
     end

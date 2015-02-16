@@ -7,6 +7,12 @@ class Idea < ActiveRecord::Base
 	has_many :comments
 	has_many :branches
 
+	scope :most_branched_off,
+	    select("idea.id, count(branches.id) AS branches_count").
+	    joins(:branches).
+	    group("ideas.id").
+	    order("branches_count DESC")
+
 def self.search(query)
     # where(:title, query) -> This would return an exact match of the query
     where("description like ? OR title like ?", "%#{query}%", "%#{query}%")

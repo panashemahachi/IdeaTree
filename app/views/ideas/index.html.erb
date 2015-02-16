@@ -16,10 +16,10 @@
         <td><%= link_to 'Destroy', idea, method: :delete, data: { confirm: 'Are you sure?' } %></td>-->
 
         <div class="row">
-          <div class="col-md-12">
+          <!-- <div class="col-md-12">
             <div class="media">          
               <div class="media-body">
-                <h3 class="media-heading"><%= link_to idea.title, idea_path(idea) %>&nbsp;<small><%= idea.short_description %> &nbsp;
+                <h3 class="media-heading"><%= link_to idea.title, idea_path(idea) %>&nbsp;<small> - <%= idea.user.first_name %> <%= idea.user.last_name %> </small><small><%= idea.short_description %> &nbsp;
                   <%= raw idea.tag_list.map {|t| link_to t, tag_path(t), :class => 'label label-default' }.join(' ')%></small>
                 </h3>
                 <p><%= idea.description %></p>
@@ -54,9 +54,70 @@
                 
               </div>
             </div>
-          </div>
-        </div>
-        <hr>
+          </div> -->
+
+            <div class="block-update-card status">
+    <div class="update-card-body">
+      <div class="update-card-body">
+
+
+      <center><h3><%= fa_icon "angle-down", class: "pull-left expand" %><%= link_to idea.title, idea_path(idea) %>&nbsp;<small> - <%= idea.user.first_name %> <%= idea.user.last_name %> </small></h3></center>
+      <hr>
+      <div class="col-md-1">
+
+       
+<center>
+                <h3><%= idea.get_upvotes.size %><small>
+                <%if idea.liked_by current_user %>
+                <%= link_to unlike_idea_path(idea), method: :put do %>
+                <%= fa_icon "plus" ,class: "positive" %>
+                <% end %>
+
+                <% else %>
+                <%= link_to like_idea_path(idea), method: :put do %>
+                <%= fa_icon "minus" ,class: "negative" %>
+                <% end %>
+
+                <% end %>
+                </small></h3>
+
+                <p>Likes</p>
+
+                
+                 <h3><%= idea.followers.count %><small>
+                 <% if idea.followed_by?(current_user) == false %>
+                <%= link_to follow_idea_path(idea) do %>
+                <%= fa_icon "plus" ,class: "positive" %>
+                <% end %>
+                <% else %>
+                <%= link_to unfollow_idea_path(idea) do %>
+                <%= fa_icon "minus" ,class: "negative" %>
+                <% end %>
+
+                <% end %>
+                </small></h3>
+
+                <p>Followers</p>
+
+                <h3><%= idea.comments.count %><small>
+                <%= link_to new_idea_comment_path(idea) do %>
+                <%= fa_icon "plus" ,class: "positive" %></small></h3>
+                <% end %>
+                <p>Comments</p></center>
+
+      </div>
+      <div class="col-md-11">
+      <p><%= idea.description %></p>
+
+      <center><h3>Branches (<%= idea.branches.count %>)</h3>
+    <%= fa_icon "angle-down 2x",class: "" %></center>
+      
+      </div>
+    </div>
+    </div>
+</div>
+</div>
+<span style="padding:200px"></span>
         <% end %>
 
         <br>

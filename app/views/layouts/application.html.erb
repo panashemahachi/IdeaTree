@@ -58,16 +58,15 @@ Last: <%= @test.last_name %>
 <div class="container">
 	<div class="col-md-2">
 		<h4 class="channel-header">Main Channels</h4>
-		<h6>Example</h6>
-		<h6>Example</h6>
-		<h6>Example</h6>
+		<h6><%= link_to "Newest Ideas", ideas_path %></h6>
+		<h6><%= link_to "Hot List", ideas_path(hot: 'hottest') %></h6>
+		<!--<h6><%= link_to "Most Branched", ideas_path(branched: 'most') %></h6>
+		<h6><%= link_to "Most Liked", ideas_path(most_liked: 'best') %></h6> -->
 
 		<h4 class="channel-header">Categories</h4>
-		<ul>
 		<% tag_cloud Idea.tag_counts, %w[s m l] do |tag, css_class| %>
-        <li><h6><%= link_to "#{tag}", tag_path(tag.name), class: css_class %></h6></li>
+        <h6><%= link_to "#{tag}", tag_path(tag.name), class: css_class %></h6>
         <% end %>
-        </ul>
 		<h4 class="channel-header">Your Channels</h4>
 		<h6>Example</h6>
 		<h6>Example</h6>
