@@ -61,9 +61,12 @@
       <div class="update-card-body">
 
 
-      <center><h3><%= fa_icon "angle-down", class: "pull-left expand" %><%= link_to idea.title, idea_path(idea) %>&nbsp;<small> - <%= idea.user.first_name %> <%= idea.user.last_name %> </small></h3></center>
+      <center><h3><%= fa_icon "angle-down", class: "pull-left expand" %>
+      <%= link_to idea.title, idea_path(idea) %>&nbsp;<small> - 
+      <%= idea.user.first_name %> <%= idea.user.last_name %>
+      </small></h3></center>
       <hr>
-      <div class="col-md-1">
+      <div class="col-md-1" style="margin-top:-22px;">
 
        
 <center>
@@ -105,8 +108,11 @@
                 <% end %>
                 <p>Comments</p></center>
 
+
+
       </div>
       <div class="col-md-11">
+      <p>Tags: <%= raw idea.tag_list.map {|t| link_to t, tag_path(t), :class => 'label label-default', :style => 'color:white' }.join(' ')%></p>
       <p><%= idea.description %></p>
 
       <center><h3>Branches (<%= idea.branches.count %>)</h3>
@@ -117,7 +123,7 @@
     </div>
 </div>
 </div>
-<span style="padding:200px"></span>
+<span style="margin-bottom:200px; margin-top:200px;">&nbsp;</span>
         <% end %>
 
         <br>

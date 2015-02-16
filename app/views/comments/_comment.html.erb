@@ -1,7 +1,19 @@
 <!-- Comment structure -->
 
-<%= comment.comment %>
+<h5>Comments</h5>
+<hr>
+<div class="col-sm-1">
+<%= fa_icon "comments" %>
+</div>
+<div class="col-sm-11">
+<p><%= comment.comment %> - 
+<%= comment.idea.user.first_name %>
+<%= comment.idea.user.last_name %></p>
 
-
+<!-- TODO: Protect in controller -->
+<% if current_user == comment.idea.user %>
 <%= link_to "Edit", edit_idea_comment_path(comment.idea, comment) %>
-<%= link_to "Delete Comment", [comment.idea, comment], method: :delete, data: {confirm: "Are you sure"} %>
+<%= link_to "Delete", [comment.idea, comment], method: :delete, data: {confirm: "Are you sure"} %>
+<% end %>
+</div>
+

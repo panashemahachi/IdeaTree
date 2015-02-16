@@ -9,6 +9,7 @@ Rails.application.routes.draw do
         put "liked", to: "ideas#liked"
         get :follow
         get :unfollow
+        get :user_ideas
       end
     end
 

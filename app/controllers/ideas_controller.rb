@@ -82,6 +82,9 @@ if params[:search]
     redirect_to :back
   end
 
+  def user_ideas
+  end
+
   private
     def set_idea
       @idea = Idea.find(params[:id])

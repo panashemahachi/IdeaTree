@@ -9,8 +9,8 @@
 <body>
 	<div class="container">
 		<!-- Static navbar -->
-		<nav class="navbar navbar-default">
-			<div class="container-fluid">
+		<nav class="navbar navbar-default navbar-fixed-top">
+			<div class="container">
 				<div class="navbar-header">
 					<button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
 						<span class="sr-only">Toggle navigation</span>
@@ -18,7 +18,8 @@
 						<span class="icon-bar"></span>
 						<span class="icon-bar"></span>
 					</button>
-					<a class="navbar-brand" href="#">ITree</a>
+
+					<%= link_to "ITree", ideas_path , :class => 'navbar-brand', :style => "color:white; background-color:#18bc9c;"%>
 				</div>
 				<div id="navbar" class="navbar-collapse collapse">
 					<!--<form class="navbar-form navbar-left">
@@ -26,21 +27,22 @@
 					</form> -->
 	
 	<%= form_tag(ideas_path, :method => "get", class: "navbar-form navbar-left", id: "search-form") do %>
-      <%= text_field_tag :search, params[:search], class: "span2", placeholder: "Search Ideas" %>
-      <button class="btn btn-success" type="submit"><%= fa_icon "search" %></button>
+      <%= text_field_tag :search, params[:search], class: "span2 form-control", style: "width:500px;", placeholder: "Search Ideas" %>
+      <button class="btn btn-success" type="submit" style="margin-left:-8px;"><%= fa_icon "search" %></button>
   <% end %>
 
-					<ul class="nav navbar-nav">
-						<li><button type="button" class="btn btn-transparent">
+					<ul class="nav navbar-nav pull-right nav-buttons">
+						<li><button type="button" class="btn btn-transparent pull-right">
 							<%= fa_icon "home" ,class: "nav-icons pull-left" %><%= link_to 'Home', ideas_path %>
 						</button></li>
-						<li><button type="button" class="btn btn-transparent"><%= fa_icon "bolt",class: "nav-icons pull-left" %>Notifications</button></li>
-						<li><button type="button" class="btn btn-transparent"><%= fa_icon "user",class: "nav-icons pull-left" %><%= link_to current_user.first_name, edit_user_registration_path %></button></li>
+						<li><button type="button" class="btn btn-transparent pull-right"><%= fa_icon "bolt",class: "nav-icons pull-left" %><%= link_to "Notifications", edit_user_registration_path %></button></li>
+						<li><button type="button" class="btn btn-transparent pull-right"><%= fa_icon "user",class: "nav-icons pull-left" %><%= link_to current_user.first_name, edit_user_registration_path %></button></li>
+						<li><button type="button" class="btn btn-success btn-sm new-idea">
+						<%= fa_icon "lightbulb-o",class: "nav-icons pull-left" %><%= link_to 'New Idea', new_idea_path %>
+					</button></li>
 					</ul>
 
-					<button type="button" class="btn btn-success">
-						<%= fa_icon "lightbulb-o",class: "nav-icons pull-left" %><%= link_to 'New Idea', new_idea_path %>
-					</button>
+					
 				</div>
 			</div>
 		</nav>
@@ -56,7 +58,7 @@ First: <%= @test.first_name %>
 Last: <%= @test.last_name %>
 <%= @test.profile_pic %>-->
 <div class="container">
-	<div class="col-md-2">
+	<div class="col-md-2" id="side-nav">
 		<h4 class="channel-header">Main Channels</h4>
 		<h6><%= link_to "Newest Ideas", ideas_path %></h6>
 		<h6><%= link_to "Hot List", ideas_path(hot: 'hottest') %></h6>
@@ -68,9 +70,10 @@ Last: <%= @test.last_name %>
         <h6><%= link_to "#{tag}", tag_path(tag.name), class: css_class %></h6>
         <% end %>
 		<h4 class="channel-header">Your Channels</h4>
-		<h6>Example</h6>
-		<h6>Example</h6>
-		<h6>Example</h6>
+		<h6><%= link_to "Your Ideas", user_ideas_idea_path(current_user) %></h6>
+		<h6>Following</h6>
+		<h6>Likes</h6>
+		<h4 class="channel-header"><%= fa_icon "star-o" %>Invite Friends</h4>
 	</div>
 	<div class="col-md-8">
 		<%= yield %>

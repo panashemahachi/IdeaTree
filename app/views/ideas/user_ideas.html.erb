@@ -1,8 +1,10 @@
-  <p id="notice"><%= notice %></p>
+ <p id="notice"><%= notice %></p>
 
 
-<% idea = @idea %>
-            <div class="block-update-card status">
+<% user_ideas = Idea.where(:user_id => current_user.id) %>
+
+<% user_ideas.each do |idea| %>
+    <div class="block-update-card status">
     <div class="update-card-body">
       <div class="update-card-body">
 
@@ -65,11 +67,9 @@
       <p><%= idea.description %></p>
 
 
-<%= render @idea.comments %>
 
 
 </div>
-  <%= render "comments/form" %>
 <br>
       <center><h3>Branches (<%= idea.branches.count %>)</h3>
     <%= fa_icon "angle-down 2x",class: "" %></center>
@@ -77,28 +77,5 @@
       </div>
     </div>
     </div>
-
-<%= link_to "X", idea, method: :delete, data: {confirm: "Are you sure you want to delete this idea?"} %>
-
-<!-- Keep this as there are originals <%= link_to like_idea_path(@idea), method: :put do %>
-
-<%= @idea.get_upvotes.size %> Likes
-
-<% end %>
-<%= link_to "Follow", follow_idea_path(@idea) %>
-<%= link_to "Unfollow", unfollow_idea_path(@idea) %>
-Amount of Followers: <%= @idea.followers.count %>
-Followers:
-<% @idea.followers.each do |follower| %>
-<%= follower.first_name %>
-<%= follower.last_name %>
-<% end %>
-
-Branches: (<%= @idea.branches.count %>)
-<% @idea.branches.each do |branch| %>
-Add greater than sign after title to show subset
-<%= @idea.title %> > <%= branch.branch_name %>
-<% end %>
-
-<%= link_to 'Edit', edit_idea_path(@idea) %> |
-<%= link_to 'Back', ideas_path %>-->
+    <span style="margin-bottom:200px; margin-top:200px;">&nbsp;</span>
+    <% end %>
