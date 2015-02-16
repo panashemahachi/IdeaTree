@@ -6,4 +6,9 @@ class Idea < ActiveRecord::Base
 	belongs_to :user
 	has_many :comments
 	has_many :branches
+
+def self.search(query)
+    # where(:title, query) -> This would return an exact match of the query
+    where("description like ? OR title like ?", "%#{query}%", "%#{query}%")
+  end
 end

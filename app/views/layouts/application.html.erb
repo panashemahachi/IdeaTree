@@ -21,9 +21,15 @@
 					<a class="navbar-brand" href="#">ITree</a>
 				</div>
 				<div id="navbar" class="navbar-collapse collapse">
-					<form class="navbar-form navbar-left">
+					<!--<form class="navbar-form navbar-left">
 						<input type="text" class="form-control" placeholder="Search">
-					</form>
+					</form> -->
+	
+	<%= form_tag(ideas_path, :method => "get", class: "navbar-form navbar-left", id: "search-form") do %>
+      <%= text_field_tag :search, params[:search], class: "span2", placeholder: "Search Ideas" %>
+      <button class="btn btn-success" type="submit"><%= fa_icon "search" %></button>
+  <% end %>
+
 					<ul class="nav navbar-nav">
 						<li><button type="button" class="btn btn-transparent">
 							<%= fa_icon "home" ,class: "nav-icons pull-left" %><%= link_to 'Home', ideas_path %>
@@ -39,6 +45,8 @@
 			</div>
 		</nav>
 	</div>
+
+	 
 <!--
 <%= @test = User.last %>
 
@@ -55,10 +63,11 @@ Last: <%= @test.last_name %>
 		<h6>Example</h6>
 
 		<h4 class="channel-header">Categories</h4>
-		<h6>Example</h6>
-		<h6>Example</h6>
-		<h6>Example</h6>
-
+		<ul>
+		<% tag_cloud Idea.tag_counts, %w[s m l] do |tag, css_class| %>
+        <li><h6><%= link_to "#{tag}", tag_path(tag.name), class: css_class %></h6></li>
+        <% end %>
+        </ul>
 		<h4 class="channel-header">Your Channels</h4>
 		<h6>Example</h6>
 		<h6>Example</h6>

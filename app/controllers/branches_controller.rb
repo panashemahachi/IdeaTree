@@ -22,6 +22,7 @@ class BranchesController < ApplicationController
 
   def create
     @branch = Branch.new(branch_params)
+    @branch.user = current_user
     @branch.save
     respond_with(@branch)
   end

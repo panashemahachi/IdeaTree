@@ -5,11 +5,16 @@ class IdeasController < ApplicationController
 
   def index
 
-    if params[:tag]
+if params[:search]
+      @ideas = Idea.search(params[:search]).order("created_at DESC")
+
+
+    elsif params[:tag]
       @ideas = Idea.tagged_with(params[:tag])
 
+    
     else
-      @ideas = Idea.all
+      @ideas = Idea.order("created_at DESC")
     end
     
   end
