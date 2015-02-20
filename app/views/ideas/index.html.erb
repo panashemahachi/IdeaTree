@@ -1,131 +1,75 @@
-<!--<div id="tag_cloud">
-<% tag_cloud Idea.tag_counts, %w{s m l} do |tag, css_class| %>
-  <%= link_to tag.name, tag_path(tag.name), class: css_class %>
-  <% end %>
-</div> -->
-
 <% @ideas.each do |idea| %>
-     <!-- <tr>
-        <td><%= idea.title %></td>
-        <td><%= idea.short_description %></td>
-        <td><%= idea.description %></td>
-        <td><%= idea.tag_list %></td>
-        Tags: <%= raw idea.tag_list.map { |t| link_to t, tag_path(t) }.join(', ') %>
-        <td><%= link_to 'Show', idea %></td>
-        <td><%= link_to 'Edit', edit_idea_path(idea) %></td>
-        <td><%= link_to 'Destroy', idea, method: :delete, data: { confirm: 'Are you sure?' } %></td>-->
-
-        <div class="row">
-          <!-- <div class="col-md-12">
-            <div class="media">          
-              <div class="media-body">
-                <h3 class="media-heading"><%= link_to idea.title, idea_path(idea) %>&nbsp;<small> - <%= idea.user.first_name %> <%= idea.user.last_name %> </small><small><%= idea.short_description %> &nbsp;
-                  <%= raw idea.tag_list.map {|t| link_to t, tag_path(t), :class => 'label label-default' }.join(' ')%></small>
-                </h3>
-                <p><%= idea.description %></p>
-
-                <%if idea.liked_by current_user %>
-                <%= link_to unlike_idea_path(idea), method: :put do %>
-                <%= fa_icon "star" ,class: "" %>
-                <% end %>
-
-                <% else %>
-                <%= link_to like_idea_path(idea), method: :put do %>
-                <%= fa_icon "star-o" ,class: "" %>
-                <% end %>
-
-                <% end %>
-                <%= idea.get_upvotes.size %>
-                <% if idea.followed_by?(current_user) == false %>
-                <%= link_to follow_idea_path(idea) do %>
-                <%= fa_icon "location-arrow" ,class: "not-following" %>
-                <% end %>
-                <% else %>
-                <%= link_to unfollow_idea_path(idea) do %>
-                <%= fa_icon "location-arrow" ,class: "following" %>
-                <% end %>
-
-
-                <% end %>
-                <%= idea.followers.count %>
-<%= fa_icon "neuter" %>
-
-<%= idea.branches.count %>
-                
-              </div>
-            </div>
-          </div> -->
-
-            <div class="block-update-card status">
+<div class="row">
+  <div class="block-update-card status">
     <div class="update-card-body">
       <div class="update-card-body">
 
 
-      <center><h3><%= fa_icon "angle-down", class: "pull-left expand" %>
-      <%= link_to idea.title, idea_path(idea) %>&nbsp;<small> - 
-      <%= idea.user.first_name %> <%= idea.user.last_name %>
-      </small></h3></center>
-      <hr>
-      <div class="col-md-1" style="margin-top:-22px;">
+        <center><h3><%= fa_icon "angle-down", class: "pull-left expand" %>
+          <%= link_to idea.title, idea_path(idea) %>&nbsp;<small> - 
+          <%= idea.user.first_name %> <%= idea.user.last_name %>
+        </small></h3></center>
+        <hr>
+        <div class="col-md-1" style="margin-top:-22px;">
 
-       
-<center>
-                <h3><%= idea.get_upvotes.size %><small>
-                <%if idea.liked_by current_user %>
-                <%= link_to unlike_idea_path(idea), method: :put do %>
-                <%= fa_icon "plus" ,class: "positive" %>
-                <% end %>
+         
+          <center>
+            <h3><%= idea.get_upvotes.size %><small>
+              <%if idea.liked_by current_user %>
+              <%= link_to unlike_idea_path(idea), method: :put do %>
+              <%= fa_icon "plus" ,class: "positive" %>
+              <% end %>
 
-                <% else %>
-                <%= link_to like_idea_path(idea), method: :put do %>
-                <%= fa_icon "minus" ,class: "negative" %>
-                <% end %>
+              <% else %>
+              <%= link_to like_idea_path(idea), method: :put do %>
+              <%= fa_icon "minus" ,class: "negative" %>
+              <% end %>
 
-                <% end %>
-                </small></h3>
+              <% end %>
+            </small></h3>
 
-                <p>Likes</p>
+            <p>Likes</p>
 
-                
-                 <h3><%= idea.followers.count %><small>
-                 <% if idea.followed_by?(current_user) == false %>
-                <%= link_to follow_idea_path(idea) do %>
-                <%= fa_icon "plus" ,class: "positive" %>
-                <% end %>
-                <% else %>
-                <%= link_to unfollow_idea_path(idea) do %>
-                <%= fa_icon "minus" ,class: "negative" %>
-                <% end %>
+            
+            <h3><%= idea.followers.count %><small>
+             <% if idea.followed_by?(current_user) == false %>
+             <%= link_to follow_idea_path(idea) do %>
+             <%= fa_icon "plus" ,class: "positive" %>
+             <% end %>
+             <% else %>
+             <%= link_to unfollow_idea_path(idea) do %>
+             <%= fa_icon "minus" ,class: "negative" %>
+             <% end %>
 
-                <% end %>
-                </small></h3>
+             <% end %>
+           </small></h3>
 
-                <p>Followers</p>
+           <p>Followers</p>
 
-                <h3><%= idea.comments.count %><small>
-                <%= link_to new_idea_comment_path(idea) do %>
-                <%= fa_icon "plus" ,class: "positive" %></small></h3>
-                <% end %>
-                <p>Comments</p></center>
+           <h3><%= idea.comments.count %><small>
+            <%= link_to new_idea_comment_path(idea) do %>
+            <%= fa_icon "plus" ,class: "positive" %></small></h3>
+            <% end %>
+            <p>Comments</p></center>
 
 
 
-      </div>
-      <div class="col-md-11">
-      <p>Tags: <%= raw idea.tag_list.map {|t| link_to t, tag_path(t), :class => 'label label-default', :style => 'color:white' }.join(' ')%></p>
-      <p><%= idea.description %></p>
+          </div>
+          <div class="col-md-11">
+            <p>Tags: <%= raw idea.tag_list.map {|t| link_to t, tag_path(t), :class => 'label label-default', :style => 'color:white' }.join(' ')%></p>
+            <p><%= idea.description %></p>
 
-      <center><h3>Branches (<%= idea.branches.count %>)</h3>
-    <%= fa_icon "angle-down 2x",class: "" %></center>
-      
+            <center><h3>Branches (<%= idea.branches.count %>)</h3>
+              <%= fa_icon "angle-down 2x",class: "" %></center>
+              
+            </div>
+          </div>
+        </div>
       </div>
     </div>
-    </div>
-</div>
-</div>
-<span style="margin-bottom:200px; margin-top:200px;">&nbsp;</span>
-        <% end %>
+    <span style="margin-bottom:200px; margin-top:200px;">&nbsp;</span>
+    <% end %>
 
-        <br>
+    <br>
 
 

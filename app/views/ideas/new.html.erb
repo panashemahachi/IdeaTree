@@ -1,5 +1,10 @@
-<h1>New idea</h1>
+<h3>
+      <%= link_to ideas_path do %>
+      <%= fa_icon "angle-left", class: "pull-left expand" %>
+      <% end %>
+      </h3>
+
+      <center><h1>New idea</h1></center>
+
 
 <%= render 'form' %>
-
-<%= link_to 'Back', ideas_path %>

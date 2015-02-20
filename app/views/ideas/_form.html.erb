@@ -11,23 +11,40 @@
     </div>
   <% end %>
 
+<div class="block-update-card status">
+    <div class="update-card-body" style="margin-right:10px;">
+      <div class="update-card-body">
+
   <div class="field">
-    <%= f.label :title %><br>
-    <%= f.text_field :title %>
+    <%= f.text_field :title, class: 'form-control', placeholder: 'Title' %>
   </div>
+
+  <hr>
+  <!--
   <div class="field">
     <%= f.label :short_description %><br>
     <%= f.text_field :short_description %>
+  </div> -->
+  <div class="field">
+    <%= f.text_area :description,  class: 'form-control', placeholder: 'My idea is...' %>
   </div>
   <div class="field">
-    <%= f.label :description %><br>
-    <%= f.text_area :description %>
-  </div>
-  <div class="field">
-    <%= f.label :tag_list, "Tags (separated by commas)" %><br>
-    <%= f.text_area :tag_list %>
+    <%= f.text_field :tag_list, class: 'form-control', placeholder: 'Tags: separated by commas...' %>
   </div>
   <div class="actions">
-    <%= f.submit %>
+    <%= f.button :submit, class: "btn btn-success pull-right" %>
   </div>
+      <span style="margin-bottom:200px; margin-top:200px;">&nbsp;</span>
+
+  </div>
+        <span style="margin-bottom:200px; margin-top:200px;">&nbsp;</span>
+
+  </div>
+        <span style="margin-bottom:200px; margin-top:200px;">&nbsp;</span>
+
+  </div>
+
+
 <% end %>
+
+

@@ -1,110 +1,18 @@
-<header>
-	<div class="container header">
-		<div class="intro-text">
-			<div class="intro-lead-in">ITree</div>
-			<div class="intro-heading">Share, Browse, Branch and Collaborate Ideas</div>
-
-			<div class="omb_login">
-				<div class="row omb_socialButtons">
-					<button class="btn btn-lg omb_btn-facebook">
-						<%= fa_icon "facebook", class: "fb-icon pull-left" %> <%= link_to "Sign in with Facebook", user_omniauth_authorize_path(:facebook)%>
-					</button>
-
-				</div>
-			</div>
-		</div>
-
-	</div>
-</div>
-</header>
+<div class="home">
 
 <div class="container">
-	<div class="row content">
-		<div class="col-md-8">
-			<h1>Share</h1>
-			<h4>Share ideas to get validation, or share a massive problem you feel needs to be solved.</h4>
-		</div>
 
-		<div class="col-md-4">
+<center><%= image_tag('logo.png', :class => 'img-responsive logo')%>
 
-			<%= image_tag("http://placehold.it/400x300", :class => 'img-responsive')%>
-		</div>
-	</div>
+	<h3 id="tagline">Browse, Branch and Collaborate Ideas</h3>
 
-	<div class="row content">
-		<div class="col-md-4">
-
-			<%= image_tag("http://placehold.it/400x300", :class => 'img-responsive')%>
-		</div>
-
-		<div class="col-md-8">
-			<h1>Browse</h1>
-			<h4>See what ideas your friends and other smart people are thinking about making.  Browse a plethora of
-			problems ranging from extremely ambitious, potentially world changing ideas, to cool smartphone apps.</h4>
-		</div>
-	</div>
-
-	<div class="row content">
-		<div class="col-md-8">
-			<h1>Branch</h1>
-			<h4>Spin off other people's ideas or generate your own based on a core idea by creating a branch.</h4>
-		</div>
-
-		<div class="col-md-4">
-
-			<%= image_tag("http://placehold.it/400x300", :class => 'img-responsive')%>
-		</div>
-	</div>
-
-	<div class="row content">
-
-	<div class="col-md-4">
-
-			<%= image_tag("http://placehold.it/400x300", :class => 'img-responsive')%>
-		</div>
-
-		<div class="col-md-8">
-			<h1>Collaborate</h1>
-			<h4>See who's interested in working on an idea and take the idea to the next step.</h4>
-		</div>
-		
-	</div>
-
+				<!--<%= fa_icon "facebook", class: "fb-icon pull-left" %>-->
+				 <%= button_to "Login", user_omniauth_authorize_path(:facebook), class: 'btn btn-success', style: 'color:#18BC9C;background-color:white'%>
+</center>
 </div>
-<section id="action" class="content">
-	<div class="container">
-		<div class="row">
-			<div class="col-lg-12 text-center">
-
-				<div class="col-md-4">
-
-					<%= image_tag("http://placehold.it/400x300", :class => 'img-responsive')%>
-				</div>
-
-				<div class="col-md-8">
-					<h1><i>"Great minds discuss ideas"</i><small> -  Elanor Roosevelt</small></h1>
-					<h4>Follow up text Follow up text Follow up text Follow up text Follow up text Follow up text</h4>
-					<center><div class="omb_login">
-				<div class="row omb_socialButtons">
-					<button class="btn btn-lg omb_btn-facebook">
-						<%= fa_icon "facebook", class: "fb-icon pull-left" %> <%= link_to "Sign in with Facebook", user_omniauth_authorize_path(:facebook)%>
-					</button>
-
-				</div>
-			</div></center>
-				</div>
-			</div>
-			
-		</div>
-	</div>
-
+	<footer class="footer">
+      <div class="container">
+        <center><h6 class="text-muted">"Great minds discuss ideas" - <small>Elanor Roosevelt</small></h6></center>
+      </div>
+    </footer>
 </div>
-</section>
-
-<footer>
-	<div class="container">
-		<div class="row">
-			<h5> ITree</h5>
-		</div>
-	</div>
-</footer>
